@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:local="clr-namespace:BaiTapDanhGia.Views"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            NavigationPage.HasNavigationBar="False"
+            x:Class="BaiTapDanhGia.Views.OverviewPage">
+
+    <NavigationPage  Title="Thị trường"
+                     IconImageSource="chart.png">
+        <x:Arguments>
+            <ContentPage />
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="Quản lí TK"
+                    IconImageSource="bill.png">
+        <x:Arguments>
+            <ContentPage />
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage  Title="Đặt lệnh"
+                     IconImageSource="hammer.png">
+        <x:Arguments>
+            <local:SetCommandPage />
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="Chuyển tiền"
+                    IconImageSource="bill.pg">
+        <x:Arguments>
+            <ContentPage />
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="Huỷ/sửa"
+                    IconImageSource="edit.png">
+        <x:Arguments>
+            <ContentPage />
+        </x:Arguments>
+    </NavigationPage>
+
+</TabbedPage>

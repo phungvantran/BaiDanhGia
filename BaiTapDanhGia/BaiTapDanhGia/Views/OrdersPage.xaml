@@ -1,0 +1,1042 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BaiTapDanhGia.Views.SetCommandPage"
+             xmlns:kit="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:local2="clr-namespace:BaiTapDanhGia"
+             BackgroundColor="White" >
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{Binding TradingCodeDisplay.CodeName}"
+                     Command="{Binding ToolbarItemCommand}" />
+        <ToolbarItem IconImageSource="shortdownwhite.png"
+                     Command="{Binding ToolbarItemCommand}" />
+        <ToolbarItem Text="       " />
+        <ToolbarItem IconImageSource="toolbaritem2" />
+        <ToolbarItem IconImageSource="toolbaritem1" />
+    </ContentPage.ToolbarItems>
+
+    <AbsoluteLayout>
+        <kit:TabView AbsoluteLayout.LayoutBounds="0,0,1,1"
+                     AbsoluteLayout.LayoutFlags="All"
+                     TabStripPlacement="Top" 
+                     TabStripBackgroundColor="#EEEEEE"
+                     TabStripHeight="40" TabIndicatorHeight="1" 
+                     IsSwipeEnabled="False" Margin="0,0,0,0" 
+                     TabIndicatorColor="Green">
+            <kit:TabViewItem Text="Lệnh thường"
+                             TextColor="#6d7581"
+                             VerticalOptions="Center"
+                             HeightRequest="40"
+                             FontAttributes="Bold"
+                             FontSize="11"
+                             FontSizeSelected="11"
+                             TextColorSelected="Green">
+                <Label Text="tab1"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center" />
+            </kit:TabViewItem>
+            <kit:TabViewItem Text="Lệnh điều kiện"
+                             VerticalOptions="Center"
+                             Padding="0"
+                             HeightRequest="40"
+                             FontAttributes="Bold"
+                             TextColor="#6d7581"
+                             FontSize="11"
+                             TextColorSelected="Green"
+                             FontSizeSelected="11"
+                             IsTabStop="True">
+                <ScrollView Padding="0" Margin="0">
+                    <StackLayout Margin="0"
+                                 Spacing="0">
+                        <Frame HasShadow="True"
+                               HeightRequest="{Binding Source={x:Reference grid1}, Path=HeightRequest}">
+                            <Grid  Margin="0"
+                                   Padding="0"
+                                   x:Name="grid1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20" />
+                                    <RowDefinition Height="20" />
+                                    <RowDefinition Height="20" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1.9*" />
+                                    <ColumnDefinition Width="1.3*" />
+                                    <ColumnDefinition  Width="*" />
+                                    <ColumnDefinition  Width="1.7*" />
+                                    <ColumnDefinition  Width="1.2*" />
+                                </Grid.ColumnDefinitions>
+
+                                <StackLayout Grid.Column="0"
+                                             Grid.RowSpan="2"
+                                             Orientation="Horizontal"
+                                             VerticalOptions="Center">
+                                    <BoxView WidthRequest="20"
+                                             HeightRequest="20"
+                                             Color="Orange"
+                                             VerticalOptions="Center" />
+                                    <Label Text="{Binding TradingCodeDisplay.OrangeNumber}"
+                                           TextColor="Black" />
+                                </StackLayout>
+                                <Label Grid.Row="2"
+                                       Grid.Column="0"
+                                       Text="0 (0%)"
+                                       TextColor="Orange" />
+
+                                <Label Grid.Row="0"
+                                       Grid.Column="1"
+                                       Text="Mở cửa"
+                                       TextColor="Black"
+                                       FontSize="12" />
+                                <Label Grid.Row="1"
+                                       Grid.Column="1"
+                                       Text="Cao"
+                                       TextColor="Black"
+                                       FontSize="12" />
+                                <Label Grid.Row="2"
+                                       Grid.Column="1"
+                                       Text="Thấp"
+                                       TextColor="Black"
+                                       FontSize="12" />
+                                <Label Grid.Row="0"
+                                       Grid.Column="2"
+                                       Text="{Binding TradingCodeDisplay.OpenDoor}"
+                                       TextColor="Green"
+                                       FontSize="12" />
+                                <Label Grid.Row="1"
+                                       Grid.Column="2"
+                                       Text="{Binding TradingCodeDisplay.High}"
+                                       TextColor="Green"
+                                       FontSize="12" />
+                                <Label Grid.Row="2"
+                                       Grid.Column="2"
+                                       Text="{Binding TradingCodeDisplay.Low}"
+                                       TextColor="Red"
+                                       FontSize="12" />
+
+                                <Label Grid.Row="0"
+                                       Grid.Column="3"
+                                       Text="Tổng (HĐ)"
+                                       TextColor="Black"
+                                       FontSize="12" />
+                                <Label Grid.Row="1"
+                                       Grid.Column="3"
+                                       Text="KL mở (OI)"
+                                       TextColor="Black"
+                                       FontSize="12" />
+                                <Label Grid.Row="0"
+                                       Grid.Column="4"
+                                       Text="{Binding TradingCodeDisplay.HD}"
+                                       TextColor="Black"
+                                       FontSize="12" HorizontalTextAlignment="End"/>
+                                <Label Grid.Row="1"
+                                       Grid.Column="4"
+                                       Text="{Binding TradingCodeDisplay.OI}"
+                                       TextColor="Black"
+                                       HorizontalTextAlignment="End"
+                                       FontSize="12" />
+                            </Grid>
+                        </Frame>
+
+                        <StackLayout Orientation="Horizontal"
+                                     Spacing="0"
+                                     HorizontalOptions="CenterAndExpand"
+                                     Margin="20,10,20,0">
+                            <Label Text="{Binding TradingCodeDisplay.Percent1}"
+                                   FontSize="12"
+                                   TextColor="Black"
+                                   VerticalOptions="Center"
+                                   Margin="0,0,0,0" />
+                            <Label Text="%"
+                                   TextColor="Black"
+                                   FontSize="12"
+                                   Margin="0,0,20,0" />
+                            <StackLayout Orientation="Horizontal"
+                                         Padding="0"
+                                         Spacing="0">
+                                <BoxView Color="#51b749"
+                                         WidthRequest="{Binding Percent1}"
+                                         HeightRequest="6"
+                                         VerticalOptions="Center" />
+                                <BoxView Color="Red"
+                                         WidthRequest="{Binding Percent2}"
+                                         HeightRequest="6"
+                                         VerticalOptions="Center" />
+                            </StackLayout>
+                            <Label Text="{Binding TradingCodeDisplay.Percent2}"
+                                   FontSize="12"
+                                   TextColor="Black"
+                                   Margin="20,0,0,0" />
+                            <Label Text="%"
+                                   TextColor="Black"
+                                   FontSize="12" />
+                        </StackLayout>
+
+                        <Grid Margin="10,0,10,0"
+                              Padding="0"
+                              RowSpacing="1"
+                              ColumnSpacing="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <!--                          ================Các cột dư mua, dư bán=================-->
+                            <Label Grid.Row="0"
+                                   Grid.Column="0"
+                                   Text="Dư mua"
+                                   TextColor="Green"
+                                   FontSize="12"
+                                   Margin="0,10,0,10" />
+                            <Label Grid.Row="0"
+                                   Grid.Column="1"
+                                   Text="Dư bán"
+                                   TextColor="Red"
+                                   FontSize="12"
+                                   Margin="0,10,0,10" />
+
+                            <StackLayout Grid.Row="1"
+                                         Grid.Column="0"
+                                         BackgroundColor="#edf7ec"
+                                         Orientation="Horizontal"
+                                         Padding="0"
+                                         Spacing="0"
+                                         Margin="0"
+                                         AutomationId="n1"
+                                         HeightRequest="40">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
+                                                          Command="{Binding ClickOnGestureRecognizerCommand}"
+                                                          CommandParameter="buy1" />
+                                </StackLayout.GestureRecognizers>
+                                <Frame HeightRequest="15"
+                                       WidthRequest="15"
+                                       BackgroundColor="#51b749"
+                                       Margin="10,15,10,10"
+                                       HorizontalOptions="Start"
+                                       Padding="0">
+                                    <Label Text="1"
+                                           FontSize="10"
+                                           TextColor="White"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center" />
+                                </Frame>
+                                <Label Text="{Binding TradingCodeDisplay.Buy1}"
+                                       TextColor="Green"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="StartAndExpand"
+                                       FontSize="12" />
+                                <Label Text="{Binding TradingCodeDisplay.Buyr1}"
+                                       TextColor="Green"
+                                       HorizontalOptions="End"
+                                       VerticalOptions="Center"
+                                       Margin="0,0,10,0"
+                                       FontSize="12" />
+                            </StackLayout>
+
+                            <StackLayout Grid.Row="2"
+                                         Grid.Column="0"
+                                         AutomationId="n2"
+                                         IsVisible="{Binding IsVisibleGridExpand}"
+                                         BackgroundColor="#edf7ec"
+                                         Orientation="Horizontal"
+                                         Padding="0"
+                                         Spacing="0"
+                                         Margin="0">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
+                                                          Command="{Binding ClickOnGestureRecognizerCommand}"
+                                                          CommandParameter="buy2" />
+                                </StackLayout.GestureRecognizers>
+                                <Frame HeightRequest="15"
+                                       WidthRequest="15"
+                                       BackgroundColor="#51b749"
+                                       Margin="10"
+                                       HorizontalOptions="Start"
+                                       Padding="0">
+                                    <Label Text="2"
+                                           FontSize="10"
+                                           TextColor="White"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center" />
+                                </Frame>
+                                <Label Text="{Binding TradingCodeDisplay.Buy2}"
+                                       TextColor="Green"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="StartAndExpand"
+                                       FontSize="12" />
+                                <Label Text="{Binding TradingCodeDisplay.Buyr2}"
+                                       TextColor="Green"
+                                       HorizontalOptions="End"
+                                       VerticalOptions="Center"
+                                       Margin="0,0,10,0"
+                                       FontSize="12" />
+                            </StackLayout>
+
+                            <StackLayout Grid.Row="3"
+                                         IsVisible="{Binding IsVisibleGridExpand}"
+                                         Grid.Column="0"
+                                         AutomationId="n3"
+                                         BackgroundColor="#edf7ec"
+                                         Orientation="Horizontal"
+                                         Padding="0"
+                                         Spacing="0">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
+                                                          Command="{Binding ClickOnGestureRecognizerCommand}"
+                                                          CommandParameter="buy3" />
+                                </StackLayout.GestureRecognizers>
+                                <Frame  HeightRequest="15"
+                                        WidthRequest="15"
+                                        BackgroundColor="#51b749"
+                                        Margin="10"
+                                        HorizontalOptions="Start"
+                                        Padding="0">
+                                    <Label Text="3"
+                                           FontSize="10"
+                                           TextColor="White"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center" />
+                                </Frame>
+                                <Label Text="{Binding TradingCodeDisplay.Buy3}"
+                                       TextColor="Green"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="StartAndExpand"
+                                       FontSize="12" />
+                                <Label Text="{Binding TradingCodeDisplay.Buyr3}"
+                                       TextColor="Green"
+                                       HorizontalOptions="End"
+                                       VerticalOptions="Center"
+                                       Margin="0,0,10,0"
+                                       FontSize="12" />
+                            </StackLayout>
+
+                            <StackLayout Grid.Row="1"
+                                         Grid.Column="1"
+                                         AutomationId="n4"
+                                         BackgroundColor="#fde8eb"
+                                         Orientation="Horizontal"
+                                         Padding="0"
+                                         Spacing="0">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer  Command="{Binding ClickOnGestureRecognizerCommand}"
+                                                           Tapped="TapGestureRecognizer_Tapped"
+                                                           CommandParameter="sell1" />
+                                </StackLayout.GestureRecognizers>
+                                <Frame HeightRequest="15"
+                                       WidthRequest="15"
+                                       BackgroundColor="#d8131b"
+                                       Margin="10,15,10,10"
+                                       HorizontalOptions="Start"
+                                       Padding="0">
+                                    <Label Text="1"
+                                           FontSize="10"
+                                           TextColor="White"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center" />
+                                </Frame>
+                                <Label Text="{Binding TradingCodeDisplay.Sell1}"
+                                       TextColor="Green"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="StartAndExpand"
+                                       FontSize="12" />
+                                <Label Text="{Binding TradingCodeDisplay.Sellr1}"
+                                       TextColor="Green"
+                                       HorizontalOptions="End"
+                                       VerticalOptions="Center"
+                                       Margin="0,0,10,0"
+                                       FontSize="12" />
+                            </StackLayout>
+
+                            <StackLayout Grid.Row="2"
+                                         IsVisible="{Binding IsVisibleGridExpand}"
+                                         Grid.Column="1"
+                                         AutomationId="n5"
+                                         BackgroundColor="#fde8eb"
+                                         Orientation="Horizontal"
+                                         Padding="0"
+                                         Spacing="0">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
+                                                          Command="{Binding ClickOnGestureRecognizerCommand}"
+                                                          CommandParameter="sell2" />
+                                </StackLayout.GestureRecognizers>
+                                <Frame  HeightRequest="15"
+                                        WidthRequest="15"
+                                        BackgroundColor="#d8131b"
+                                        Margin="10"
+                                        HorizontalOptions="Start"
+                                        Padding="0">
+                                    <Label Text="2"
+                                           FontSize="10"
+                                           TextColor="White"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center" />
+                                </Frame>
+                                <Label Text="{Binding TradingCodeDisplay.Sell2}"
+                                       TextColor="Green"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="StartAndExpand"
+                                       FontSize="12" />
+                                <Label Text="{Binding TradingCodeDisplay.Sellr2}"
+                                       TextColor="Green"
+                                       HorizontalOptions="End"
+                                       VerticalOptions="Center"
+                                       Margin="0,0,10,0"
+                                       FontSize="12" />
+                            </StackLayout>
+
+                            <StackLayout Grid.Row="3"
+                                         Grid.Column="1"
+                                         AutomationId="n6"
+                                         IsVisible="{Binding IsVisibleGridExpand}"
+                                         BackgroundColor="#fde8eb"
+                                         Orientation="Horizontal"
+                                         Padding="0"
+                                         Spacing="0">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
+                                                          Command="{Binding ClickOnGestureRecognizerCommand}"
+                                                          CommandParameter="sell3" />
+                                </StackLayout.GestureRecognizers>
+                                <Frame  HeightRequest="15"
+                                        WidthRequest="15"
+                                        BackgroundColor="#d8131b"
+                                        Margin="10"
+                                        HorizontalOptions="Start"
+                                        Padding="0">
+                                    <Label Text="3"
+                                           FontSize="10"
+                                           TextColor="White"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center" />
+                                </Frame>
+                                <Label Text="{Binding TradingCodeDisplay.Sell3}"
+                                       TextColor="Green"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="StartAndExpand"
+                                       FontSize="12" />
+                                <Label Text="{Binding TradingCodeDisplay.Sellr3}"
+                                       TextColor="Green"
+                                       HorizontalOptions="End"
+                                       VerticalOptions="Center"
+                                       Margin="0,0,10,0"
+                                       FontSize="12" />
+                            </StackLayout>
+                            
+                        </Grid>
+                        <StackLayout BackgroundColor="White" HeightRequest="30" Padding="0,5,0,0">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ExpandGridCommand}" />
+                            </StackLayout.GestureRecognizers>
+                            <Image Source="{Binding ImgbtnSourceExpand}"
+                                  WidthRequest="25" HeightRequest="25" 
+                                   VerticalOptions="Center"
+                                   />
+                        </StackLayout>
+                        <!--========================================Các cột MUA và BÁN=================-->
+                        <Grid HeightRequest="40"
+                              Padding="0"
+                              ColumnSpacing="0">
+                            <StackLayout Grid.Column="0"
+                                         BackgroundColor="{Binding BgColorMua}"
+                                         Padding="0"
+                                         Margin="0">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding BuyOrSellCommand}"
+                                                          CommandParameter="buy" />
+                                </StackLayout.GestureRecognizers>
+                                <Label Margin="0"
+                                       Text="MUA"
+                                       HeightRequest="38"
+                                       FontAttributes="Bold"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalOptions="Center"
+                                       TextColor="{Binding LblColorMua}" />
+                                <BoxView IsVisible="{Binding IsVisibleBoxViewBuy}"
+                                         Color="#51b749"
+                                         HeightRequest="2" />
+                            </StackLayout>
+                            <StackLayout Grid.Column="1"
+                                         BackgroundColor="{Binding BgColorBan}">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding BuyOrSellCommand}"
+                                                          CommandParameter="sell" />
+                                </StackLayout.GestureRecognizers>
+                                <Label Text="BÁN"
+                                       HeightRequest="38"
+                                       FontAttributes="Bold"
+                                       HorizontalOptions="Center"
+                                       VerticalTextAlignment="Center"
+                                       TextColor="{Binding LblColorBan}" />
+                                <BoxView  IsVisible="{Binding IsVisibleBoxViewSell}"
+                                          Color="#d8131b"
+                                          HeightRequest="2"
+                                          VerticalOptions="End" />
+                            </StackLayout>
+
+                        </Grid>
+
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="36" />
+                                <RowDefinition  Height="37" />
+                                <RowDefinition  Height="36" />
+                                <RowDefinition  Height="20" />
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Row="0"
+                                   Grid.Column="0"
+                                   Text="Loại điều kiện"
+                                   VerticalOptions="Center"
+                                   TextColor="Black"
+                                   FontSize="12" />
+                            <StackLayout Grid.Row="1"
+                                         Grid.Column="0"
+                                         Orientation="Horizontal">
+                                <Label Text="Khối lượng"
+                                       TextColor="Black"
+                                       VerticalOptions="Center"
+                                       FontSize="12" />
+                                <StackLayout Orientation="Horizontal"
+                                             VerticalOptions="Center"
+                                             HeightRequest="30"
+                                             Padding="2,0,2,0"
+                                             BackgroundColor="#808080"
+                                             AutomationId="max">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                    </StackLayout.GestureRecognizers>
+                                    <Label Text="max"
+                                           TextColor="White"
+                                           FontSize="12"
+                                           VerticalTextAlignment="Center" />
+                                    <Label Text="{Binding TradingCodeDisplay.Max}"
+                                           TextColor="White"
+                                           VerticalTextAlignment="Center"
+                                           FontSize="12" />
+                                </StackLayout>
+                            </StackLayout>
+                            <Label Grid.Row="2"
+                                   Grid.Column="0"
+                                   Text="Giá"
+                                   TextColor="Black"
+                                   FontSize="12"
+                                   VerticalOptions="Center" />
+                            <Frame Grid.Row="0"
+                                   Grid.Column="1"
+                                   HasShadow="False"
+                                   BorderColor="#c9c9c9"
+                                   Padding="0">
+                                <StackLayout Orientation="Horizontal">
+
+                                    <local2:Dropdown VerticalOptions="Center"
+                                                     ItemsSource="{Binding ListOrder}"
+                                                     HeightRequest="23"
+                                                     WidthRequest="180"
+                                                     ItemSelected="OnDropdownSelected"
+                                                     SelectedIndex="0">
+                                    </local2:Dropdown>
+                                </StackLayout>
+                            </Frame>
+                            <!--        +++++++++++++++++++ Ô khối lượng  -->
+                            <Frame Grid.Row="1"
+                                   Grid.Column="1"
+                                   HasShadow="False"
+                                   BorderColor="#c9c9c9"
+                                   Padding="0"
+                                   BackgroundColor="{Binding BgColorEntryKhoiLuong}">
+                                <StackLayout Orientation="Horizontal"
+                                             Spacing="0">
+                                    <ImageButton Source="minus.png"
+                                                 Margin="2,2,0,2"
+                                                 WidthRequest="20"
+                                                 BackgroundColor="{Binding BgColorEntryKhoiLuong}"
+                                                 Command="{Binding ChangeQuantityCommand}"
+                                                 CommandParameter="minus" />
+                                    <local2:CustomEntry Keyboard="Numeric"
+                                                        WidthRequest="100"
+                                                        BackgroundColor="{Binding BgColorEntryQuantity}"
+                                                        Text="{Binding Quantity}"
+                                                        HorizontalOptions="CenterAndExpand"
+                                                        FontSize="12"
+                                                        Unfocused="CustomEntry_Unfocused" />
+                                    <ImageButton Source="plus.png"
+                                                 Margin="0,2,2,2"
+                                                 WidthRequest="20"
+                                                 HorizontalOptions="End"
+                                                 BackgroundColor="{Binding BgColorEntryKhoiLuong}"
+                                                 Command="{Binding ChangeQuantityCommand}"
+                                                 CommandParameter="plus" />
+                                </StackLayout>
+                            </Frame>
+                            <Frame Grid.Row="2"
+                                   x:Name="gia"
+                                   IsVisible="{Binding  IsVisibleConditionUPDOWN}"
+                                   Grid.Column="1"
+                                   BackgroundColor="#c9c9c9"
+                                   HasShadow="False" />
+                            <!--    ++++++++++++++++ Ô giá ++++++-->
+                            <Frame Grid.Row="2"
+                                   IsVisible="{Binding IsVisibleConditionOCO}"
+                                   Grid.Column="1"
+                                   HasShadow="False"
+                                   BackgroundColor="{Binding BgColorEntryGia}"
+                                   BorderColor="#c9c9c9"
+                                   Padding="0">
+                                <StackLayout Orientation="Horizontal">
+                                    <ImageButton Source="minus.png"
+                                                 CommandParameter="minus"
+                                                 Command="{Binding ChangePriceCommand}"
+                                                 HeightRequest="20"
+                                                 Margin="2"
+                                                 BackgroundColor="{Binding BgColorEntryGia}"
+                                                 WidthRequest="18" />
+                                    <local2:CustomEntry HorizontalOptions="CenterAndExpand"
+                                                        FontSize="12"
+                                                        Keyboard="Numeric"
+                                                        Text="{Binding Price,Mode=TwoWay}"
+                                                        WidthRequest="100" />
+                                    <ImageButton Source="plus.png"
+                                                 Margin="2"
+                                                 CommandParameter="plus"
+                                                 Command="{Binding ChangePriceCommand}"
+                                                 HeightRequest="18"
+                                                 BackgroundColor="{Binding BgColorEntryGia}"
+                                                 HorizontalOptions="End" />
+                                </StackLayout>
+                            </Frame>
+                            <StackLayout Grid.Row="3"
+                                         Grid.Column="1"
+                                         Orientation="Horizontal"
+                                         VerticalOptions="End">
+                                <StackLayout AutomationId="m"
+                                             HorizontalOptions="Start"
+                                             VerticalOptions="End">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
+                                                              Command="{Binding ClickOnGestureRecognizerCommand}"
+                                                              CommandParameter="pink" />
+                                    </StackLayout.GestureRecognizers>
+                                    <Label Text="{Binding TradingCodeDisplay.PinkNumber}"
+                                           TextColor="#e49"
+                                           FontSize="12" />
+                                </StackLayout>
+                                <StackLayout AutomationId="m"
+                                             HorizontalOptions="CenterAndExpand"
+                                             VerticalOptions="End">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
+                                                              Command="{Binding ClickOnGestureRecognizerCommand}"
+                                                              CommandParameter="orange" />
+                                    </StackLayout.GestureRecognizers>
+                                    <Label Text="{Binding TradingCodeDisplay.OrangeNumber}"
+                                           TextColor="Orange"
+                                           FontSize="12" />
+                                </StackLayout>
+                                <StackLayout AutomationId="m">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
+                                                              Command="{Binding ClickOnGestureRecognizerCommand}"
+                                                              CommandParameter="blue" />
+                                    </StackLayout.GestureRecognizers>
+                                    <Label Text="{Binding TradingCodeDisplay.BlueNumber}"
+                                           TextColor="#90d7eb"
+                                           FontSize="12" />
+                                </StackLayout>
+
+                            </StackLayout>
+                        </Grid>
+                        <!--=================================================Các FRAME to lỗi======================-->
+                        <Frame BorderColor="#c9c9c9"
+                               HasShadow="False"
+                               CornerRadius="5"
+                               Padding="10"
+                               IsVisible="{Binding IsVisibleConditionOCO}"
+                               Margin="10,0,10,20">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20" />
+                                    <RowDefinition Height="36" />
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="0"
+                                       Grid.Column="0"
+                                       IsVisible="{Binding IsVisibleConditionBB}"
+                                       Text="Khoảng lãi"
+                                       FontSize="12"
+                                       TextColor="Black"
+                                       VerticalOptions="Center" />
+                                <!--    +++++++++++ Ô khoảng lãi   ++++++++++-->
+                                <Frame Grid.Row="1"
+                                       Grid.Column="0"
+                                       IsVisible="{Binding IsVisibleConditionBB}"
+                                       HasShadow="False"
+                                       BorderColor="#c9c9c9"
+                                       Padding="0">
+                                    <StackLayout Orientation="Horizontal"
+                                                 Padding="0">
+                                        <ImageButton Source="minus.png"
+                                                     Margin="2"
+                                                     HeightRequest="20"
+                                                     BackgroundColor="White"
+                                                     WidthRequest="18"
+                                                     Command="{Binding ChangeProfitStepCommand}"
+                                                     CommandParameter="minus" />
+                                        <local2:CustomEntry Keyboard="Numeric"
+                                                            WidthRequest="100"
+                                                            FontSize="12"
+                                                            Text="{Binding ProfitStep,Mode=TwoWay}" />
+                                        <ImageButton Source="plus.png"
+                                                     Margin="2"
+                                                     HeightRequest="18"
+                                                     BackgroundColor="White"
+                                                     HorizontalOptions="End"
+                                                     Command="{Binding ChangeProfitStepCommand}"
+                                                     CommandParameter="plus" />
+                                    </StackLayout>
+                                </Frame>
+                                <Label Grid.Row="0"
+                                       Grid.Column="1"
+                                       Text="Giá chốt lãi"
+                                       FontSize="12"
+                                       TextColor="Black"
+                                       VerticalOptions="Center" />
+                                <!-- +++++++++++ Ô giá chốt lãi-->
+                                <Frame Grid.Row="1"
+                                       Grid.Column="1"
+                                       BackgroundColor="#c9c9c9"
+                                       HasShadow="False"
+                                       Padding="1">
+                                    <Label Text="{Binding TakeprofitPrice,Mode=TwoWay}"
+                                           FontSize="14"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center"
+                                           TextColor="Black" />
+                                </Frame>
+                            </Grid>
+                        </Frame>
+                        <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++ Tiêu đề Frame 2-->
+                        <Label Text="Chốt lãi"
+                               IsVisible="{Binding IsVisibleConditionOCO }"
+                               TextColor="Black"
+                               FontSize="12"
+                               Margin="20,-113,0,95"
+                               BackgroundColor="White"
+                               WidthRequest="50"
+                               HorizontalTextAlignment="Center"
+                               HorizontalOptions="StartAndExpand"
+                               HeightRequest="18" />
+                        <Frame BorderColor="#c9c9c9"
+                               HasShadow="False"
+                               Margin="10,0,10,0"
+                               Padding="10"
+                               CornerRadius="5">
+                            <!---->
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20" />
+                                    <RowDefinition Height="36" />
+                                    <RowDefinition Height="20" />
+                                    <RowDefinition Height="36" />
+                                </Grid.RowDefinitions>
+
+                                <Label Grid.Row="0"
+                                       Grid.Column="0"
+                                       Text="Giá điều kiện"
+                                       FontSize="12"
+                                       TextColor="Black" />
+                                <Label Grid.Row="0"
+                                       Grid.Column="0"
+                                       IsVisible="{Binding IsVisibleConditionBB}"
+                                       Text="Khoảng lỗ"
+                                       FontSize="12"
+                                       BackgroundColor="White"
+                                       TextColor="Black" />
+
+                                <Label Grid.Row="0"
+                                       Grid.Column="1"
+                                       Text="Biên trượt"
+                                       FontSize="12"
+                                       TextColor="Black" />
+                                <!-- Ô giá điều kiện-->
+                                <Frame Grid.Row="1"
+                                       BackgroundColor="White"
+                                       Grid.Column="0"
+                                       HasShadow="False"
+                                       BorderColor="#c9c9c9"
+                                       Padding="0">
+                                    <StackLayout Orientation="Horizontal"
+                                                 Padding="0">
+                                        <ImageButton Source="minus.png"
+                                                     Command="{Binding ChangeTriggerPriceCommand}"
+                                                     CommandParameter="minus"
+                                                     Margin="2"
+                                                     HeightRequest="20"
+                                                     BackgroundColor="White"
+                                                     WidthRequest="18" />
+
+                                        <local2:CustomEntry Keyboard="Numeric"
+                                                            Text="{Binding TriggerPrice,Mode=TwoWay}"
+                                                            WidthRequest="100"
+                                                            FontSize="12"
+                                                            Unfocused="CustomEntry_Unfocused" />
+                                        <ImageButton Source="plus.png"
+                                                     Command="{Binding ChangeTriggerPriceCommand}"
+                                                     CommandParameter="plus"
+                                                     Margin="2"
+                                                     HeightRequest="18"
+                                                     BackgroundColor="White"
+                                                     HorizontalOptions="End" />
+                                    </StackLayout>
+                                </Frame>
+                                <!--Ô Khoảng lỗ-->
+                                <Frame Grid.Row="1"
+                                       IsVisible="{Binding IsVisibleConditionBB}"
+                                       BackgroundColor="White"
+                                       Grid.Column="0"
+                                       HasShadow="False"
+                                       BorderColor="#c9c9c9"
+                                       Padding="0">
+                                    <StackLayout Orientation="Horizontal"
+                                                 Padding="0">
+                                        <ImageButton Source="minus.png"
+                                                     Margin="2"
+                                                     HeightRequest="20"
+                                                     BackgroundColor="White"
+                                                     WidthRequest="18"
+                                                     Command="{Binding ChangeLossStepCommand}"
+                                                     CommandParameter="minus" />
+
+                                        <local2:CustomEntry Keyboard="Numeric"
+                                                            WidthRequest="100"
+                                                            FontSize="12"
+                                                            Text="{Binding LossStep,Mode=TwoWay}" />
+                                        <ImageButton Source="plus.png"
+                                                     Margin="2"
+                                                     HeightRequest="18"
+                                                     BackgroundColor="White"
+                                                     HorizontalOptions="End"
+                                                     Command="{Binding ChangeLossStepCommand}"
+                                                     CommandParameter="plus" />
+                                    </StackLayout>
+                                    <!--Ô Biên trượt-->
+                                </Frame>
+                                <Frame Grid.Row="1"
+                                       Grid.Column="1"
+                                       HasShadow="False"
+                                       BackgroundColor="White"
+                                       BorderColor="#c9c9c9"
+                                       Padding="0">
+                                    <StackLayout Orientation="Horizontal"
+                                                 Padding="0">
+                                        <ImageButton Source="minus.png"
+                                                     HeightRequest="20"
+                                                     Command="{Binding ChangeSpreadCommand}"
+                                                     CommandParameter="minus"
+                                                     Margin="2"
+                                                     BackgroundColor="White"
+                                                     WidthRequest="18" />
+                                        <local2:CustomEntry Keyboard="Numeric"
+                                                            Text="{Binding Spread}"
+                                                            WidthRequest="100"
+                                                            FontSize="12" />
+                                        <ImageButton Source="plus.png"
+                                                     Command="{Binding ChangeSpreadCommand}"
+                                                     CommandParameter="plus"
+                                                     Margin="2"
+                                                     HeightRequest="18"
+                                                     BackgroundColor="White"
+                                                     HorizontalOptions="End" />
+                                    </StackLayout>
+                                </Frame>
+                                <Label Grid.Row="2"
+                                       Grid.Column="0"
+                                       IsVisible="{Binding IsVisibleConditionBB }"
+                                       Text="Giá điều kiện"
+                                       FontSize="12"
+                                       TextColor="black"
+                                       VerticalOptions="Center" />
+                                <!--   ++++ Ô giá điều kiện xám   ++++-->
+                                <Frame Grid.Row="3"
+                                       Grid.Column="0"
+                                       IsVisible="{Binding IsVisibleConditionBB }"
+                                       BackgroundColor="#c9c9c9"
+                                       HasShadow="False"
+                                       Padding="0">
+                                    <Label Text="{Binding TriggerPriceGray}"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center"
+                                           TextColor="Black"
+                                           FontSize="13" />
+                                </Frame>
+                                <Label Grid.Row="2"
+                                       Grid.Column="1"
+                                       Text="Giá đặt điều chỉnh"
+                                       FontSize="12"
+                                       TextColor="black"
+                                       VerticalOptions="Center" />
+                                <!--       +++++++++ Ô giá đặt điều chỉnh   +++++++-->
+                                <Frame Grid.Row="3"
+                                       Grid.Column="1"
+                                       BackgroundColor="#c9c9c9"
+                                       Padding="0"
+                                       HasShadow="False">
+                                    <Label Text="{Binding AdjustedPrice}"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="Center"
+                                           FontSize="13"
+                                           TextColor="Black" />
+                                </Frame>
+                            </Grid>
+                        </Frame>
+                        <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Tiêu đề khung FRAME-->
+                        <Label Text="Kích hoạt"
+                               TextColor="Black"
+                               FontSize="12"
+                               IsVisible="{Binding IsVisibleConditionUPDOWN}"
+                               Margin="20,-162,0,150"
+                               BackgroundColor="White"
+                               WidthRequest="61"
+                               HorizontalTextAlignment="Center"
+                               HorizontalOptions="StartAndExpand"
+                               HeightRequest="20" />
+                        <Label Text="Cắt lỗ"
+                               IsVisible="{Binding  IsVisibleConditionOCO}"
+                               TextColor="Black"
+                               FontSize="12"
+                               Margin="20,-161,0,150"
+                               BackgroundColor="White"
+                               WidthRequest="40"
+                               HorizontalTextAlignment="Center"
+                               HorizontalOptions="StartAndExpand"
+                               HeightRequest="16" />
+
+                        <Grid Padding="10"
+                              RowSpacing="22"
+                              Margin="0,10,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40" />
+                                <RowDefinition Height="50" />
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Row="0"
+                                   Grid.Column="0"
+                                   Text="Mật khẩu giao dịch"
+                                   TextColor="Black"
+                                   FontSize="14"
+                                   VerticalOptions="Center" />
+                            <Frame Grid.Row="0"
+                                   Grid.Column="1"
+                                   HasShadow="False"
+                                   BorderColor="#c9c9c9"
+                                   Padding="0">
+                                <StackLayout Orientation="Horizontal"
+                                             Padding="0"
+                                             Margin="0">
+                                    <local2:CustomEntry Placeholder="Mật khẩu giao dịch"
+                                                        FontSize="12"
+                                                        Text="{Binding TradingPassword,Mode=TwoWay}"
+                                                        IsPassword="{Binding IsPassword}"
+                                                        HorizontalOptions="StartAndExpand"
+                                                        Unfocused="CustomEntry_Unfocused" />
+
+                                    <ImageButton Source="{Binding ImgbtnSourceShowPass}"
+                                                 Command="{Binding ShowPassCommand}"
+                                                 HeightRequest="20"
+                                                 BackgroundColor="White"
+                                                 Margin="0,3,10,3" />
+                                </StackLayout>
+                            </Frame>
+                            <Frame Grid.Row="1"
+                                   Grid.ColumnSpan="2"
+                                   HasShadow="False"
+                                   WidthRequest="200"
+                                   HorizontalOptions="Center"
+                                   IsVisible="{Binding IsVisibleBoxViewSell}"
+                                   Padding="0">
+                                <Button Text="Xác nhận bán"
+                                        CornerRadius="20"
+                                        TextColor="White"
+                                        FontSize="14"
+                                        BackgroundColor="{Binding BgButtonConfirm}"
+                                        FontAttributes="Bold"
+                                        Command="{Binding ButtonClickCommand}" />
+                            </Frame>
+                            <Frame Grid.Row="1"
+                                   Grid.ColumnSpan="2"
+                                   HasShadow="False"
+                                   WidthRequest="200"
+                                   HorizontalOptions="Center"
+                                   Padding="0"
+                                   IsVisible="{Binding IsVisibleBoxViewBuy}">
+                                <Button Text="Xác nhận mua"
+                                        CornerRadius="20"
+                                        TextColor="White"
+                                        FontSize="14"
+                                        BackgroundColor="{Binding BgButtonConfirm}"
+                                        FontAttributes="Bold"
+                                        Command="{Binding ButtonClickCommand}" />
+                            </Frame>
+
+                        </Grid>
+                    </StackLayout>
+
+                </ScrollView>
+            </kit:TabViewItem>
+            <kit:TabViewItem Text="Lệnh theo mẫu"
+                             VerticalOptions="Center"
+                             FontAttributes="Bold"
+                             TextColor="#6d7581"
+                             HeightRequest="35"
+                             FontSize="11"
+                             FontSizeSelected="11"
+                             IsTabStop="True"
+                             TextColorSelected="Green">
+                <Label Text="tab 3"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center" />
+            </kit:TabViewItem>
+            
+
+        </kit:TabView>
+        <StackLayout  AbsoluteLayout.LayoutBounds="0,0,1,1"
+                      IsVisible="{Binding  IsVisibleFrameCover}"
+                      AbsoluteLayout.LayoutFlags="All"
+                      BackgroundColor="Transparent"
+                      AutomationId="hide"
+                      Opacity="0">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+            </StackLayout.GestureRecognizers>
+        </StackLayout>
+        <!--List mã giao dịch của Toolbaritem-->
+        <Frame AbsoluteLayout.LayoutBounds=".2,0,150,200"
+               AbsoluteLayout.LayoutFlags="PositionProportional"
+               IsVisible="{Binding IsVisibleListTradingCode}"
+               Padding="0"
+               CornerRadius="5">
+            <ListView ItemsSource="{Binding ListCode}"
+                      SelectedItem="{Binding SelectedItem,Mode=TwoWay}"
+                      ItemSelected="OnSelectTradingCode">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding CodeName}"
+                                       TextColor="Black"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Frame>
+      
+    </AbsoluteLayout>
+
+</ContentPage>

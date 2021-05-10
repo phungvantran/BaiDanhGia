@@ -1,0 +1,15 @@
+C:\Users\84398.DESKTOP-UQVPDHN\source\repos\BaiTapDanhGia\BaiTapDanhGia\bin\Debug\netstandard2.0\BaiTapDanhGia.deps.json
+C:\Users\84398.DESKTOP-UQVPDHN\source\repos\BaiTapDanhGia\BaiTapDanhGia\bin\Debug\netstandard2.0\BaiTapDanhGia.dll
+C:\Users\84398.DESKTOP-UQVPDHN\source\repos\BaiTapDanhGia\BaiTapDanhGia\bin\Debug\netstandard2.0\ref\BaiTapDanhGia.dll
+C:\Users\84398.DESKTOP-UQVPDHN\source\repos\BaiTapDanhGia\BaiTapDanhGia\bin\Debug\netstandard2.0\BaiTapDanhGia.pdb
+C:\Users\84398.DESKTOP-UQVPDHN\source\repos\BaiTapDanhGia\BaiTapDanhGia\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\84398.DESKTOP-UQVPDHN\source\repos\BaiTapDanhGia\BaiTapDanhGia\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\84398.DESKTOP-UQVPDHN\source\repos\BaiTapDanhGia\BaiTapDanhGia\obj\Debug\netstandard2.0\Views\OrdersPage.xaml.g.cs
+C:\Users\84398.DESKTOP-UQVPDHN\source\repos\BaiTapDanhGia\BaiTapDanhGia\obj\Debug\netstandard2.0\Views\OverviewPage.xaml.g.cs
+C:\Users\84398.DESKTOP-UQVPDHN\source\repos\BaiTapDanhGia\BaiTapDanhGia\obj\Debug\netstandard2.0\BaiTapDanhGia.AssemblyInfoInputs.cache
+C:\Users\84398.DESKTOP-UQVPDHN\source\repos\BaiTapDanhGia\BaiTapDanhGia\obj\Debug\netstandard2.0\BaiTapDanhGia.AssemblyInfo.cs
+C:\Users\84398.DESKTOP-UQVPDHN\source\repos\BaiTapDanhGia\BaiTapDanhGia\obj\Debug\netstandard2.0\BaiTapDanhGia.csproj.CoreCompileInputs.cache
+C:\Users\84398.DESKTOP-UQVPDHN\source\repos\BaiTapDanhGia\BaiTapDanhGia\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\84398.DESKTOP-UQVPDHN\source\repos\BaiTapDanhGia\BaiTapDanhGia\obj\Debug\netstandard2.0\BaiTapDanhGia.dll
+C:\Users\84398.DESKTOP-UQVPDHN\source\repos\BaiTapDanhGia\BaiTapDanhGia\obj\Debug\netstandard2.0\ref\BaiTapDanhGia.dll
+C:\Users\84398.DESKTOP-UQVPDHN\source\repos\BaiTapDanhGia\BaiTapDanhGia\obj\Debug\netstandard2.0\BaiTapDanhGia.pdb
